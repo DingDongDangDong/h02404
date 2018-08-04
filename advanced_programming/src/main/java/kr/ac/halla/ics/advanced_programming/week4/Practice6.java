@@ -1,18 +1,18 @@
-package kr.ac.halla.ics.advanced_programming.week3;
+package kr.ac.halla.ics.advanced_programming.week4;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.HashMap;
 
 /**
- * Process the number of source IDs with HashSet
+ * The number of occurrence for each source id
  * 
  * @author jack
  *
  */
-public class Assignment5 {
+public class Practice6 {
 
 	public static void main(String[] args) {
 
@@ -21,7 +21,7 @@ public class Assignment5 {
 
 			BufferedReader br = new BufferedReader(fin);
 
-			HashSet<String> sourceIDSet = new HashSet<>();
+			HashMap<String, String> sourceIDMap = new HashMap<String, String>();
 
 			while (true) {
 				String line = br.readLine();
@@ -31,14 +31,11 @@ public class Assignment5 {
 					continue;
 				String[] arr = line.split("\t");
 
-				sourceIDSet.add(arr[0]);
+				sourceIDMap.put(arr[0], "anything");
 
 			}
-
-			System.out.println(sourceIDSet.size());
+			System.out.println(sourceIDMap.size());
 			br.close();
-
-			// 225409
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

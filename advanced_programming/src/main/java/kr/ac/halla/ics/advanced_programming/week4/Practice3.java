@@ -1,4 +1,4 @@
-package kr.ac.halla.ics.advanced_programming.week3;
+package kr.ac.halla.ics.advanced_programming.week4;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -7,12 +7,12 @@ import java.io.IOException;
 import java.util.HashSet;
 
 /**
- * Process the number of source IDs with HashSet
+ * Intersection of source IDs and destination IDs
  * 
  * @author jack
  *
  */
-public class Assignment5 {
+public class Practice3 {
 
 	public static void main(String[] args) {
 
@@ -22,7 +22,8 @@ public class Assignment5 {
 			BufferedReader br = new BufferedReader(fin);
 
 			HashSet<String> sourceIDSet = new HashSet<>();
-
+			HashSet<String> destIDSet = new HashSet<>();
+			
 			while (true) {
 				String line = br.readLine();
 				if (line == null)
@@ -32,13 +33,12 @@ public class Assignment5 {
 				String[] arr = line.split("\t");
 
 				sourceIDSet.add(arr[0]);
-
+				destIDSet.add(arr[1]);
+				
 			}
-
+			sourceIDSet.retainAll(destIDSet);
 			System.out.println(sourceIDSet.size());
 			br.close();
-
-			// 225409
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

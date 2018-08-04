@@ -1,18 +1,19 @@
-package kr.ac.halla.ics.advanced_programming.week3;
+package kr.ac.halla.ics.advanced_programming.week4;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.Iterator;
 
 /**
- * Process the number of source IDs with HashSet
+ * Learn iterator pattern
  * 
  * @author jack
  *
  */
-public class Assignment5 {
+public class Practice2 {
 
 	public static void main(String[] args) {
 
@@ -34,11 +35,15 @@ public class Assignment5 {
 				sourceIDSet.add(arr[0]);
 
 			}
-
-			System.out.println(sourceIDSet.size());
+			
+			Iterator<String> iterator = sourceIDSet.iterator();
+			while(iterator.hasNext()) {
+				String id = iterator.next();
+				System.out.println(id);
+			}
+			
+			System.out.println("# of IDs :" + sourceIDSet.size());
 			br.close();
-
-			// 225409
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

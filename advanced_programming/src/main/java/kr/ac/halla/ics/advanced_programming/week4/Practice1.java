@@ -1,4 +1,4 @@
-package kr.ac.halla.ics.advanced_programming.week3;
+package kr.ac.halla.ics.advanced_programming.week4;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -12,7 +12,7 @@ import java.util.HashSet;
  * @author jack
  *
  */
-public class Assignment5 {
+public class Practice1 {
 
 	public static void main(String[] args) {
 
@@ -34,11 +34,9 @@ public class Assignment5 {
 				sourceIDSet.add(arr[0]);
 
 			}
-
+			
 			System.out.println(sourceIDSet.size());
 			br.close();
-
-			// 225409
 
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
