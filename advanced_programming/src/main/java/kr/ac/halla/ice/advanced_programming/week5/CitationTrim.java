@@ -13,24 +13,17 @@ public class CitationTrim {
 		try {
 			FileReader fin = new FileReader("/home/jack/CRAWDAD/arxiv-hep-ph-coauth/out.ca-cit-HepPh");
 			FileWriter fout = new FileWriter("/home/jack/CRAWDAD/arxiv-hep-ph-coauth/trim.txt");
-			
+
 			BufferedReader br = new BufferedReader(fin);
 			BufferedWriter bw = new BufferedWriter(fout);
-			
+
 			int c = 0;
-			while(true) {
-				String line = br.readLine();
-			}
-			
-			// Read each character from a file
-			// At the end of file, read() returns -1
-			int c;
 			while (true) {
-				c = fin.read();
-				if (c == -1) {
+				String line = br.readLine();
+				if (c == 500000)
 					break;
-				}
-				fout.write((char) c);
+				c++;
+				bw.write(line+"\n");
 			}
 			fout.close();
 			fin.close();
