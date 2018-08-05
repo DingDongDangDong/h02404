@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * HashSet methods
+ * ArrayList methods
  * 
  * Week 4-1
  * 

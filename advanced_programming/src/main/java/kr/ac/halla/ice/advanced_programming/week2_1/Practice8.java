@@ -1,11 +1,7 @@
 package kr.ac.halla.ice.advanced_programming.week2_1;
 
 /**
- * Class: How to abstract a concept
- * 
- * Constructor
- * 
- * toString overriding
+ * Array of class instance
  * 
  * getter setter with Eclipse IDE
  * 
