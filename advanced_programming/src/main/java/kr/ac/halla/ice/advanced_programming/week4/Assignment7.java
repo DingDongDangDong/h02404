@@ -4,7 +4,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+import java.util.TreeMap;
 
 /**
  * The number of occurrence for each source id
@@ -12,7 +14,7 @@ import java.util.HashMap;
  * @author jack
  *
  */
-public class Assignment4 {
+public class Assignment7 {
 
 	public static void main(String[] args) {
 
@@ -21,7 +23,7 @@ public class Assignment4 {
 
 			BufferedReader br = new BufferedReader(fin);
 
-			HashMap<String, Integer> occurrenceMap = new HashMap<String, Integer>();
+			TreeMap<String, Integer> occurrenceMap = new TreeMap<String, Integer>();
 
 			while (true) {
 				String line = br.readLine();
@@ -40,15 +42,14 @@ public class Assignment4 {
 				}
 			}
 
-//			Iterator<Entry<String, Integer>> iterator = occurrenceMap.entrySet().iterator();
-//			while (iterator.hasNext()) {
-//				Entry<String, Integer> entry = iterator.next();
-//				System.out.println(entry.getKey() + "-" + entry.getValue());
-//			}
+			Iterator<Entry<String, Integer>> iterator = occurrenceMap.entrySet().iterator();
+			while (iterator.hasNext()) {
+				Entry<String, Integer> entry = iterator.next();
+				System.out.println(entry.getKey() + "-" + entry.getValue());
+			}
 
-			// The number of 3024 occurrence
-			System.out.println(occurrenceMap.get("3024"));
-
+			// Vote: 946 --> 110
+			// Wiki: 93285 --> 12
 			br.close();
 
 		} catch (FileNotFoundException e) {

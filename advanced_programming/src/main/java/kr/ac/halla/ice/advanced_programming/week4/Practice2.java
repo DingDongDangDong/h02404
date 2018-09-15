@@ -19,11 +19,11 @@ public class Practice2 {
 	public static void main(String[] args) {
 
 		try {
-			FileReader fin = new FileReader("/home/jack/CRAWDAD/email/Email-EuAll.txt");
+			FileReader fin = new FileReader("/home/jack/Email-EuAll.txt");
 
 			BufferedReader br = new BufferedReader(fin);
 
-			HashSet<String> sourceIDSet = new HashSet<>();
+			HashSet<Integer> idSet = new HashSet<Integer>();
 
 			while (true) {
 				String line = br.readLine();
@@ -33,11 +33,11 @@ public class Practice2 {
 					continue;
 				String[] arr = line.split("\t");
 
-				sourceIDSet.add(arr[0]);
-
+				idSet.add(Integer.parseInt(arr[0]));
+				idSet.add(Integer.parseInt(arr[1]));
 			}
 			
-			System.out.println(sourceIDSet.size());
+			System.out.println(idSet.size());
 			br.close();
 
 		} catch (FileNotFoundException e) {

@@ -19,7 +19,7 @@ public class Practice1 {
 	public static void main(String[] args) {
 
 		try {
-			FileReader fin = new FileReader("/home/jack/CRAWDAD/email/Email-EuAll.txt");
+			FileReader fin = new FileReader("/home/jack/Email-EuAll.txt");
 
 			BufferedReader br = new BufferedReader(fin);
 
