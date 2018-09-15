@@ -16,8 +16,9 @@ public class Assignment2 {
 	public static void main(String[] args) {
 
 		try {
-			FileReader fin = new FileReader("/home/jack/CRAWDAD/email/Email-EuAll.txt");
-
+			//FileReader fin = new FileReader("/home/jack/Email-EuAll.txt");
+			FileReader fin = new FileReader("/home/jack/Wiki-Vote.txt");
+			
 			BufferedReader br = new BufferedReader(fin);
 
 			int numLine = 0;

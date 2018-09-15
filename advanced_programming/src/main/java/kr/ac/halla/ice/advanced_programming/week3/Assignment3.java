@@ -16,8 +16,9 @@ public class Assignment3 {
 	public static void main(String[] args) {
 
 		try {
-			FileReader fin = new FileReader("/home/jack/CRAWDAD/email/Email-EuAll.txt");
-
+			// FileReader fin = new FileReader("/home/jack/Email-EuAll.txt");
+			FileReader fin = new FileReader("/home/jack/Wiki-Vote.txt");
+			
 			BufferedReader br = new BufferedReader(fin);
 
 			long numID = 0;
@@ -27,7 +28,8 @@ public class Assignment3 {
 					break;
 				if (line.startsWith("#") == true)
 					continue;
-				String[] arr = line.split("\t");
+				// String[] arr = line.split("\t");
+				String[] arr = line.split("\\s");
 				numID = numID + arr.length;
 			}
 

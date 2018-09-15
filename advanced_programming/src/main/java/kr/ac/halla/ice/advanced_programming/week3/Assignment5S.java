@@ -4,14 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.HashSet;
 
 /**
- * Process the number of IDs in a file
+ * Process the number of source IDs
  * 
  * @author jack
  *
  */
-public class Assignment4 {
+public class Assignment5S {
 
 	public static void main(String[] args) {
 
@@ -21,7 +22,8 @@ public class Assignment4 {
 
 			BufferedReader br = new BufferedReader(fin);
 
-			long numID = 0;
+			HashSet<Integer> set = new HashSet<Integer>();
+
 			while (true) {
 				String line = br.readLine();
 				if (line == null)
@@ -30,12 +32,15 @@ public class Assignment4 {
 					continue;
 				// String[] arr = line.split("\t");
 				String[] arr = line.split("\\s");
-				if (arr[0] != null)
-					numID++;
+
+				set.add(Integer.parseInt(arr[0]));
+				set.add(Integer.parseInt(arr[1]));
+
 			}
 
-			System.out.println(numID);
+			System.out.println(set.size());
 			br.close();
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
