@@ -1,37 +1,39 @@
 package kr.ac.halla.ice.advanced_programming.week5;
 
-import java.util.Stack;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
 
-/**
- * Stack parentheses expression test
- * 
- * Week 5-1
- * 
- * @author jack
- *
- */
 public class Practice1 {
 
 	public static void main(String[] args) {
 
-		String expression = "((3+5)-1)";
+		// Construction
+		HashMap<Integer, String> idName = new HashMap<Integer, String>();
+		idName.put(18174, "jack");
+		idName.put(20151111, "jackson");
+		idName.put(20151234, "wonder");
+		idName.put(20154321, "Eminem");
+		idName.remove(20154321);
+		System.out.println(idName.size()); // 3
+		System.out.println(idName.containsKey(18174)); // true
+		System.out.println(idName.get(20151111)); // “jackson“
+		System.out.println(idName.isEmpty()); // false
 
-		Stack<Character> parentheses = new Stack<>();
-		for (int i = 0; i < expression.length(); i++) {
-			char c = expression.charAt(i);
-			if (c == '(')
-				parentheses.push(c);
-			else if (c == ')') {
-				// check top
-				boolean isEmpty = parentheses.isEmpty();
-				if (isEmpty) {
-					System.out.println("It is not an expression");
-					break;
-				}
-				parentheses.pop();
-			}
+		Iterator<Integer> iterator = idName.keySet().iterator();
+		while (iterator.hasNext()) {
+			Integer key = iterator.next();
+			String value = idName.get(key);
+			System.out.println(key + " : " + value);
 		}
-		int size = parentheses.size();
-		System.out.println(size);
+
+		Iterator<Entry<Integer, String>> iterator2 = idName.entrySet().iterator();
+		while (iterator2.hasNext()) {
+			Entry<Integer, String> entry = iterator2.next();
+			Integer key = entry.getKey();
+			String value = entry.getValue();
+			System.out.println(key + " : " + value);
+		}
+
 	}
 }

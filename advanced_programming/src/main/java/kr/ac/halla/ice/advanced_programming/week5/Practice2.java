@@ -1,32 +1,28 @@
 package kr.ac.halla.ice.advanced_programming.week5;
 
-import java.util.LinkedList;
+import java.util.HashMap;
 
-/**
- * Queue practice
- * 
- * Week 5-1
- * 
- * @author jack
- *
- */
 public class Practice2 {
 
 	public static void main(String[] args) {
 
-		LinkedList<String> queue = new LinkedList<>();
-		//enqueue
-		queue.add("abc");
-		queue.add("def");
-		queue.add("xfg");
-		queue.add("fds");
-		
-		while(queue.isEmpty() == false) {
-			//dequeue
-			String first = queue.remove();
-			System.out.println(first);
+		String data = "0 1 2 3 2 3 1 0 1 4 2 3 5 8 9 9 9 2 3 0 1 2 9 7 7 3";
+		String[] arr = data.split("\\s");
+		HashMap<String, Integer> newSet = new HashMap<String, Integer>();
+		for (int i = 0; i < arr.length; i++) {
+			// Check the redundancy
+			// If exists
+			String item = arr[i];
+			if (newSet.containsKey(item)) {
+				// Get the value // Increase the value // Update the value for the key
+				int occ = newSet.get(item);
+				newSet.put(arr[i], occ + 1);
+			} else {
+				// If not exists
+				// Just put the value for the key (i.e., 1)
+				newSet.put(arr[i], 1);
+			}
 		}
-		
-		System.out.println(queue.size());
+		System.out.println(newSet);
 	}
 }

@@ -1,57 +1,58 @@
 package kr.ac.halla.ice.advanced_programming.week5;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Random;
-import java.util.TreeSet;
 
-/**
- * TreeSet
- * 
- * Week 5-1
- * 
- * @author jack
- *
- */
 public class Practice3 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader bufferedReader = new BufferedReader(new FileReader("c:\\Email-euAll.txt"));
 
-		TreeSet<Integer> treeSet = new TreeSet<Integer>();
+		HashMap<Integer, Integer> occurrenceMap = new HashMap<Integer, Integer>();
 
-		// insert 1000 random integer to the set
-		Random r = new Random();
-		for (int i = 0; i < 1000; i++) {
-			treeSet.add(r.nextInt(10000));
+		while (true) {
+
+			String line = bufferedReader.readLine();
+			if (line == null)
+				break;
+
+			if (line.startsWith("#"))
+				continue;
+
+			String[] arr = line.split("\t");
+			int sender = Integer.parseInt(arr[0]);
+			int receiver = Integer.parseInt(arr[1]);
+
+			if(occurrenceMap.containsKey(sender)) {
+				occurrenceMap.put(sender, occurrenceMap.get(sender)+1);
+			}else {
+				occurrenceMap.put(sender, 1);
+			}
+			
+			if(occurrenceMap.containsKey(receiver)) {
+				occurrenceMap.put(receiver, occurrenceMap.get(receiver)+1);
+			}else {
+				occurrenceMap.put(receiver, 1);
+			}
 		}
 
-		// iterator (ascending order)
-		Iterator<Integer> ascIterator = treeSet.iterator();
-		while (ascIterator.hasNext()) {
-			Integer i = ascIterator.next();
-			System.out.println(i);
+		int maximum = -1;
+		int mkey = -1;
+
+		Iterator<Integer> iterator = occurrenceMap.keySet().iterator();
+		while (iterator.hasNext()) {
+			Integer key = iterator.next();
+			if(occurrenceMap.get(key) > maximum) {
+				maximum = occurrenceMap.get(key);
+				mkey = key;
+			}
+
 		}
-
-		// iterator (descending order)
-		Iterator<Integer> descIterator = treeSet.descendingIterator();
-		while (descIterator.hasNext()) {
-			Integer i = descIterator.next();
-			System.out.println(i);
-		}
-
-		// ceiling: Returns the least element in this set greater than or equal to the
-		// given element, or null if there is no such element.
-		System.out.println(treeSet.ceiling(35));
-
-		// floor: Returns the greatest element in this set less than or equal to the
-		// given element, or null if there is no such element.
-		System.out.println(treeSet.floor(35));
-
-		// higher: Returns the least element in this set strictly greater than the given
-		// element, or null if there is no such element.
-		System.out.println(treeSet.higher(35));
-
-		// lower: Returns the greatest element in this set strictly less than the given
-		// element, or null if there is no such element.
-		System.out.println(treeSet.lower(35));
+		System.out.println(mkey + " : " + maximum);
+		bufferedReader.close();
 	}
 }

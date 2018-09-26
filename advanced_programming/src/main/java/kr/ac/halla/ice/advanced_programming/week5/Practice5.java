@@ -1,34 +1,24 @@
 package kr.ac.halla.ice.advanced_programming.week5;
 
-import java.util.Iterator;
-import java.util.Random;
-import java.util.TreeSet;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
-/**
- * TreeSet with custom comparable class
- * 
- * Week 5-1
- * 
- * @author jack
- *
- */
 public class Practice5 {
 
-	public static void main(String[] args) {
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args) throws IOException, ParseException {
 
-		TreeSet<ComparableRelationship> treeSet = new TreeSet<ComparableRelationship>();
+		long currentMil = System.currentTimeMillis();
+		Date date = new Date(currentMil);
+		System.out.println(date.getYear() + 1900);
 
-		// insert 1000 random integer to the set
-		Random r = new Random();
-		for (int i = 0; i < 1000; i++) {
-			treeSet.add(new ComparableRelationship("a" + r.nextInt(10000), "b", "c" + r.nextInt(10000)));
-		}
+		SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+		String dateStr = sdf.format(date);
+		System.out.println(dateStr);
 
-		// iterator (ascending order)
-		Iterator<ComparableRelationship> ascIterator = treeSet.iterator();
-		while (ascIterator.hasNext()) {
-			ComparableRelationship i = ascIterator.next();
-			System.out.println(i.getSubject());
-		}
+		Date parsedDate = sdf.parse("2018-09-26");
+		System.out.println(parsedDate);
 	}
 }

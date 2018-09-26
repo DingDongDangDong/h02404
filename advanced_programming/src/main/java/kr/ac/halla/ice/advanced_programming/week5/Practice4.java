@@ -1,36 +1,65 @@
 package kr.ac.halla.ice.advanced_programming.week5;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Random;
-import java.util.TreeSet;
 
-import kr.ac.halla.ice.advanced_programming.week2_1.Relationship;
-
-/**
- * TreeSet with custom class ( should fail )
- * 
- * Week 5-1
- * 
- * @author jack
- *
- */
 public class Practice4 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
+		BufferedReader bufferedReader = new BufferedReader(new FileReader("c:\\Email-euAll.txt"));
 
-		TreeSet<Relationship> treeSet = new TreeSet<Relationship>();
+		// Load the dataset via ArrayList
+		ArrayList<Email> emailList = new ArrayList<Email>();
 
-		// insert 1000 random integer to the set
-		Random r = new Random();
-		for (int i = 0; i < 1000; i++) {
-			treeSet.add(new Relationship("a" + r.nextInt(10000), "b", "c" + r.nextInt(10000)));
+		while (true) {
+
+			String line = bufferedReader.readLine();
+			if (line == null)
+				break;
+
+			if (line.startsWith("#"))
+				continue;
+
+			String[] arr = line.split("\t");
+			int sender = Integer.parseInt(arr[0]);
+			int receiver = Integer.parseInt(arr[1]);
+
+			Email email = new Email(sender, receiver);
+			emailList.add(email);
 		}
 
-		// iterator (ascending order)
-		Iterator<Relationship> ascIterator = treeSet.iterator();
-		while (ascIterator.hasNext()) {
-			Relationship i = ascIterator.next();
-			System.out.println(i);
+		bufferedReader.close();
+
+		// reuse emailList
+
+		HashSet<Integer> r93285 = new HashSet<Integer>();
+
+		Iterator<Email> iterator = emailList.iterator();
+		while (iterator.hasNext()) {
+
+			Email email = iterator.next();
+
+			if (email.getSenderID() == 93285) {
+				r93285.add(email.getReceiverID());
+			}
 		}
+
+		System.out.println("r93285: " + r93285.size());
+
+		HashSet<Integer> rr93285 = new HashSet<Integer>();
+
+		iterator = emailList.iterator();
+		while (iterator.hasNext()) {
+			Email email = iterator.next();
+			if (r93285.contains(email.getSenderID())) {
+				rr93285.add(email.getReceiverID());
+			}
+		}
+
+		System.out.println("rr93285: " + rr93285.size());
 	}
 }

@@ -8,6 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        String[] arr = "1|2|3".split("\\|");
+        System.out.println(arr.length);
     }
 }
