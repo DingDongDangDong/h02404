@@ -42,22 +42,34 @@ public class P22 {
 
 		// 등장횟수의 최소값
 		int minimum = Integer.MAX_VALUE;
-		// 등장횟수가 최소값인 ID SET 
-		HashSet<Integer> minSet = new HashSet<Integer>();
-
-		Iterator<Integer> iterator = occurrenceMap.keySet().iterator();
-		while (iterator.hasNext()) {
-			Integer key = iterator.next();
-			if (occurrenceMap.get(key) < minimum) {
+		// 등장횟수가 최소값인 ID SET
+//		HashSet<Integer> minSet = new HashSet<Integer>();
+//
+//		Iterator<Integer> iterator = occurrenceMap.keySet().iterator();
+//		while (iterator.hasNext()) {
+//			Integer key = iterator.next();
+//			if (occurrenceMap.get(key) < minimum) {
+//				minimum = occurrenceMap.get(key);
+//				minSet = new HashSet<Integer>();
+//				minSet.add(key);
+//			} else if (occurrenceMap.get(key) == minimum) {
+//				minSet.add(key);
+//			}
+//		}
+		// minimum 최소값이 나옴
+		int cnt = 0;
+		Iterator<Integer> iter = occurrenceMap.keySet().iterator();
+		while (iter.hasNext()) {
+			int key = iter.next();
+			int val = occurrenceMap.get(key);
+			if (val < minimum) {
 				minimum = occurrenceMap.get(key);
-				minSet = new HashSet<Integer>();
-				minSet.add(key);
-			} else if (occurrenceMap.get(key) == minimum) {
-				minSet.add(key);
+				if(val == 1)
+					cnt++;
 			}
 		}
 
-		System.out.println(minSet.size());
+		System.out.println(cnt);
 		bufferedReader.close();
 	}
 
