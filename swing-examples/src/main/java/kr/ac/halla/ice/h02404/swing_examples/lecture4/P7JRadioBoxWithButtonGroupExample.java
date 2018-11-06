@@ -11,9 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JRadioButton;
 
 @SuppressWarnings("serial")
-public class JRadioBoxWithButtonGroupExample extends JFrame {
+public class P7JRadioBoxWithButtonGroupExample extends JFrame {
 
-	public JRadioBoxWithButtonGroupExample() {
+	public P7JRadioBoxWithButtonGroupExample() {
 		setTitle("Example");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -32,6 +32,7 @@ public class JRadioBoxWithButtonGroupExample extends JFrame {
 		contentPane.add(apple);
 		contentPane.add(banana);
 
+		// See only one item can be selected
 		apple.addItemListener(new ItemListener() {
 			
 			@Override
@@ -49,6 +50,6 @@ public class JRadioBoxWithButtonGroupExample extends JFrame {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		JRadioBoxWithButtonGroupExample frame = new JRadioBoxWithButtonGroupExample();
+		P7JRadioBoxWithButtonGroupExample frame = new P7JRadioBoxWithButtonGroupExample();
 	}
 }

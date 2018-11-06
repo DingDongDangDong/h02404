@@ -6,13 +6,13 @@ import java.awt.FlowLayout;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-import javax.swing.JCheckBox;
 import javax.swing.JFrame;
+import javax.swing.JRadioButton;
 
 @SuppressWarnings("serial")
-public class JCheckBoxExample extends JFrame {
+public class P6JRadioBoxWithoutButtonGroupExample extends JFrame {
 
-	public JCheckBoxExample() {
+	public P6JRadioBoxWithoutButtonGroupExample() {
 		setTitle("Example");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -21,8 +21,8 @@ public class JCheckBoxExample extends JFrame {
 		contentPane.setLayout(new FlowLayout());
 
 		// JCheckBox allows to select boxes
-		JCheckBox apple = new JCheckBox("APPLE");
-		JCheckBox banana = new JCheckBox("BANANA");
+		JRadioButton apple = new JRadioButton("APPLE");
+		JRadioButton banana = new JRadioButton("BANANA");
 		
 		contentPane.add(apple);
 		contentPane.add(banana);
@@ -33,7 +33,7 @@ public class JCheckBoxExample extends JFrame {
 			public void itemStateChanged(ItemEvent e) {
 				// ItemEvent.SELECTED or ItemEvent.DESELECTED
 				System.out.println(e.getStateChange());
-				System.out.println(((JCheckBox)e.getItem()).getText());
+				System.out.println(((JRadioButton)e.getItem()).getText());
 			}
 		});
 		
@@ -44,6 +44,6 @@ public class JCheckBoxExample extends JFrame {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		JCheckBoxExample frame = new JCheckBoxExample();
+		P6JRadioBoxWithoutButtonGroupExample frame = new P6JRadioBoxWithoutButtonGroupExample();
 	}
 }

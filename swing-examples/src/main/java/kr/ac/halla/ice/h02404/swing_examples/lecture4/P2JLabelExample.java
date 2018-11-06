@@ -8,9 +8,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 @SuppressWarnings("serial")
-public class JLabelExample extends JFrame {
+public class P2JLabelExample extends JFrame {
 
-	public JLabelExample() {
+	public P2JLabelExample() {
 		setTitle("Example");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -27,6 +27,6 @@ public class JLabelExample extends JFrame {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-		JLabelExample frame = new JLabelExample();
+		P2JLabelExample frame = new P2JLabelExample();
 	}
 }

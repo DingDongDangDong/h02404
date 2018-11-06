@@ -7,13 +7,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 
 @SuppressWarnings("serial")
-public class JLabelExample2 extends JFrame {
+public class P4JButtonExample extends JFrame {
 
-	public JLabelExample2() throws MalformedURLException {
+	public P4JButtonExample() throws MalformedURLException {
 		setTitle("Example");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -23,7 +24,9 @@ public class JLabelExample2 extends JFrame {
 
 		// JLabel prints out String or Image
 		ImageIcon image = new ImageIcon(new URL("http://www.autoidlabs.org.uk/images/Auto-IDLabsLogo.png"));
-		contentPane.add(new JLabel(image));
+		JButton button = new JButton(image);
+		button.setHorizontalAlignment(SwingConstants.RIGHT);
+		contentPane.add(button);
 
 		setSize(300, 150);
 		setVisible(true);
@@ -31,6 +34,6 @@ public class JLabelExample2 extends JFrame {
 
 	@SuppressWarnings("unused")
 	public static void main(String[] args) throws MalformedURLException {
-		JLabelExample2 frame = new JLabelExample2();
+		P4JButtonExample frame = new P4JButtonExample();
 	}
 }
