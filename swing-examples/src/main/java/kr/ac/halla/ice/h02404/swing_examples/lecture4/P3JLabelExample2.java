@@ -3,6 +3,7 @@ package kr.ac.halla.ice.h02404.swing_examples.lecture4;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.Image;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -22,10 +23,12 @@ public class P3JLabelExample2 extends JFrame {
 		contentPane.setLayout(new FlowLayout());
 
 		// JLabel prints out String or Image
-		ImageIcon image = new ImageIcon(new URL("http://www.autoidlabs.org.uk/images/Auto-IDLabsLogo.png"));
+		ImageIcon image = new ImageIcon(
+				new ImageIcon(new URL("http://www.autoidlabs.org.uk/images/Auto-IDLabsLogo.png")).getImage()
+						.getScaledInstance(200, 200, Image.SCALE_DEFAULT));
 		contentPane.add(new JLabel(image));
 
-		setSize(300, 150);
+		setSize(300, 300);
 		setVisible(true);
 	}
 
