@@ -59,7 +59,10 @@ public class P2Dialog extends JFrame {
 class MyDialog extends JDialog {
 
 	public MyDialog(JFrame frame, JTextArea rcode) {
-		super(frame);
+		// Modal Dialog
+		super(frame, true);
+		// Modaless Dialog
+		// super(frame);
 
 		setTitle("Insert your code");
 		setLayout(new FlowLayout());

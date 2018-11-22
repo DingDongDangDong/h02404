@@ -45,7 +45,7 @@ class LabelRunnable implements Runnable {
 	public void run() {
 		while (true) {
 			try {
-				Thread.sleep(2000);
+				Thread.sleep(10);
 				label.setText(String.valueOf(++count));
 			} catch (InterruptedException e) {
 				e.printStackTrace();
